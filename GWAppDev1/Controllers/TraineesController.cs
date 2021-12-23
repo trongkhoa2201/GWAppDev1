@@ -55,7 +55,7 @@ namespace GWAppDev1.Controllers
             return View(trainee);
         }
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Detail(int id)
         {
             var trainee = _context.Trainees.SingleOrDefault(t => t.Id == id);
             if (trainee == null)

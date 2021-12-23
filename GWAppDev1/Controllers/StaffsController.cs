@@ -326,20 +326,17 @@ namespace GWAppDev1.Controllers
         [HttpGet]
         public ActionResult AssignTrainer()
         {
-            var role = _context.Roles.SingleOrDefault(r => r.Name.Equals(Role.Trainer));
-            var trainers = _context.Trainers
-                .Where(m => m.Roles
-                .Any(r => r.RoleId.Equals(role.Id)))
-                .ToList();
+            var role = (from r in _context.Roles where r.Name.Contains("Trainer") select r).FirstOrDefault();
+            var users = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role.Id)).ToList();
             var viewModel = new CoursesTrainersViewModel
             {
                 Courses = _context.Courses.ToList(),
-                Trainers = trainers
+                Trainers = users
             };
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult AssignUser(CoursesTrainersViewModel viewModel)
+        public ActionResult AssignTrainer(CoursesTrainersViewModel viewModel)
         {
             var model = new CourseTrainer
             {
@@ -355,16 +352,12 @@ namespace GWAppDev1.Controllers
             catch (System.Exception)
             {
                 ModelState.AddModelError("duplicate", "User already existed in Team");
-                var role = _context.Roles
-                  .SingleOrDefault(r => r.Name.Equals(Role.Trainer));
-                var trainers = _context.Trainers
-                  .Where(m => m.Roles
-                  .Any(r => r.RoleId.Equals(role.Id)))
-                  .ToList();
+                var role = (from r in _context.Roles where r.Name.Contains("Trainer") select r).FirstOrDefault();
+                var users = _context.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(role.Id)).ToList();
                 var newViewModel = new CoursesTrainersViewModel
                 {
                     Courses = _context.Courses.ToList(),
-                    Trainers = trainers
+                    Trainers = users
                 };
                 return View(newViewModel);
             }

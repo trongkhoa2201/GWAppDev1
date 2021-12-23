@@ -1,0 +1,18 @@
+﻿@model GWAppDev1.Models.Trainee
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Trainee Detail</h2>
+<div class="form-group">
+    @Html.ActionLink("Back to ShowTraineeInfo", "Index", null, new { @class = "btn btn-primary" })
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">@Model.Fullname</div>
+    <div class="panel-body">
+        <p>Email :@Model.Email</p>
+        <p>Age :@Model.Age</p>
+        <p>DateOfBirth :@Model.DateOfBirth</p>
+        <p>Address :@Model.Address</p>
+    </div>
+    </div>

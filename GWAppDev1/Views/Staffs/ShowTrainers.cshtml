@@ -16,7 +16,7 @@
             <tr>
                 <td>@trainer.Email</td>
                 <td>
-                    @Html.ActionLink("Show Trainer", "Trainers", new { id = trainer.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Remove", "RemoveTrainers", new { id = trainer.Id }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
