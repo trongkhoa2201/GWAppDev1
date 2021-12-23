@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="colum-md-6 bosom-none">
+            <img src="https://danangjob.vn/Upload/Member/201941194347.png" style="display: block; margin-left: auto; margin-right: auto; width: 325px;" alt="">
+        </div>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole(GWAppDev1.Utils.Role.Admin))
+    {
+        <div class="jumbotron">
+            <h2 class="text-center">Academic Port all</h2>
+            <p class="lead, text-center">Sign in for Staff & Student</p>
+            <div class="form-group">
+                @Html.ActionLink("Login Admin", "Login", "Account", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    }
+}
+<div class="row">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole(GWAppDev1.Utils.Role.Admin))
+        {
+            <div class="col-md-4">
+                <h2>Admin</h2>
+        </div>
+        }
+        if (User.IsInRole(GWAppDev1.Utils.Role.Staff))
+        {
+            <div class="col-md-4">
+                <h2>This is Page Of Staff</h2>
+            </div>
+        }
+        if (User.IsInRole(GWAppDev1.Utils.Role.Trainer))
+        {
+            <div class="col-md-4">
+                <h2>This is Page Of Trainer's</h2>
+            </div>
+        }
+        if (User.IsInRole(GWAppDev1.Utils.Role.Trainee))
+        {
+            <div class="col-md-4">
+                <h2>This is Page of Trainee</h2>
+            </div>
+        }
+
+    }
+</div>

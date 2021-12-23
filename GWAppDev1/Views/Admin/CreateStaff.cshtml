@@ -1,0 +1,51 @@
+﻿@model GWAppDev1.ViewModels.RegisterViewModels
+@{
+    ViewBag.Title = "CreateStaff";
+}
+
+<h2>CreateStaff</h2>
+
+@using (Html.BeginForm("CreateStaff", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Staff.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Staff.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>ConfirmPassword</label>
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Fullname</label>
+        @Html.TextBoxFor(m => m.Staff.Fullname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Staff.Fullname, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        @Html.TextBoxFor(m => m.Staff.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Staff.Age, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        @Html.TextBoxFor(m => m.Staff.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Staff.Address, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

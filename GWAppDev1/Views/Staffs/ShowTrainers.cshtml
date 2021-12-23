@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GWAppDev1.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ShowTrainers";
+}
+
+<h2>Show Trainers in Course</h2>
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th class="text-danger">Email</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var trainer in Model)
+        {
+            <tr>
+                <td>@trainer.Email</td>
+                <td>
+                    @Html.ActionLink("Show Trainer", "Trainers", new { id = trainer.Id }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

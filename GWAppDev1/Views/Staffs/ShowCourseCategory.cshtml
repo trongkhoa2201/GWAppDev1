@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<GWAppDev1.Models.CourseCategory>
+@{
+    ViewBag.Title = "ShowCourseCategory";
+}
+
+<h2>ShowCourseCategory</h2>
+<div class="form-group">
+    @Html.ActionLink("Back to Home", "Index", "Staffs", null, new { @class = "btn btn-primary" })
+</div>
+<div class="form-group">
+    @Html.ActionLink("Create a new CourseCategory", "CreateCourseCategory", null, new { @class = "btn btn-primary" })
+</div>
+@using (Html.BeginForm("ShowCourseCategory", "Staffs", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.TextBox("searchString", null, new { @class = "form-control", placeholder = "Search by trainee name or descriptions" })
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+}
+
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th class="text-danger">NameCourseCategory</th>
+            <th class="text-danger">Descriptions</th>
+            <th class="text-danger">Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var courseCategory in Model)
+        {
+            <tr>
+                <td>@courseCategory.NameCourseCategory</td>
+                <td>@courseCategory.Descriptions</td>
+                <td>
+                    @Html.ActionLink("Edit CourseCategory", "EditCourseCategory", new { id = courseCategory.Id },
+                    new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete CourseCategory", "DeleteCourseCategory", new { id = courseCategory.Id }
+                    , new { @class = "btn btn-danger", onClick = "return confirm('Are you sure?')" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

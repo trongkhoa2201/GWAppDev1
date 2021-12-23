@@ -1,0 +1,27 @@
+﻿@model GWAppDev1.Models.CourseCategory
+@{
+    ViewBag.Title = "EditCourseCategory";
+}
+
+<h2>EditCourseCategory</h2>
+@using (Html.BeginForm("EditCourseCategory", "Staffs", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        <label>Name Coursecategory</label>
+        @Html.TextBoxFor(m => m.NameCourseCategory, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NameCourseCategory, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextBoxFor(m => m.Descriptions, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Descriptions, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Edit Trainee</button>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,35 @@
+﻿@model  IEnumerable<GWAppDev1.Models.Trainee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ShowTraineeInfo</h2>
+
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th class="text-danger">FullName</th>
+            <th class="text-danger">Email</th>
+            <th class="text-danger">Age</th>
+            <th class="text-danger">Address</th>
+            <th class="text-danger">DateOfBirth</th>
+            <th class="text-danger">Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var trainee in Model)
+        {
+            <tr>
+                <td>@trainee.Fullname</td>
+                <td>@trainee.Email</td>
+                <td>@trainee.Age</td>
+                <td>@trainee.Address</td>
+                <td>@trainee.DateOfBirth</td>
+
+                <td>
+                    @Html.ActionLink("DetailTraineeInfo", "Details", new { id = trainee.Id }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

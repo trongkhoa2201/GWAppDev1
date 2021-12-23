@@ -1,0 +1,46 @@
+﻿@model  IEnumerable<GWAppDev1.Models.Trainer>
+@{
+    ViewBag.Title = "ShowTrainerInfo";
+}
+
+<h2>ShowTrainerInfo</h2>
+<div class="form-group">
+    @Html.ActionLink("Back to Home", "Index", "Admin", null, new { @class = "btn btn-primary" })
+</div>
+<div class="form-group">
+    @Html.ActionLink("Create a new Trainer", "CreateTrainer", null, new { @class = "btn btn-primary" })
+</div>
+
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th class="text-danger">FullName</th>
+            <th class="text-danger">Email</th>
+            <th class="text-danger">Age</th>
+            <th class="text-danger">Address</th>
+            <th class="text-danger">Specialty</th>
+            <th class="text-danger">Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var trainer in Model)
+        {
+            <tr>
+                <td>@trainer.Fullname</td>
+                <td>@trainer.Email</td>
+                <td>@trainer.Age</td>
+                <td>@trainer.Address</td>
+                <td>@trainer.Specialty</td>
+
+                <td>
+                    @Html.ActionLink("Edit TrainerInfo", "EditTrainerInfo", new { id = trainer.Id },
+                    new { @class = "btn btn-success" })
+                    @Html.ActionLink("DeleteTrainer", "DeleteTrainer", new { id = trainer.Id }
+                    , new { @class = "btn btn-danger", onClick = "return confirm('Are you sure?')" })
+                    @Html.ActionLink("ChangePassword", "ChangePasswordTrainer", new { id = trainer.UserId },
+                   new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

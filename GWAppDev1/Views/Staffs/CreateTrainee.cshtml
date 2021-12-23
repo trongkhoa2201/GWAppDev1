@@ -1,0 +1,57 @@
+﻿@model GWAppDev1.ViewModels.RegisterViewModels
+@{
+    ViewBag.Title = "CreateTrainee";
+}
+
+<h2>Create a New Trainee</h2>
+
+@using (Html.BeginForm("CreateTrainee", "Staffs", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(m => m.Trainee.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Trainee.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>ConfirmPassword</label>
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Fullname</label>
+        @Html.TextBoxFor(m => m.Trainee.Fullname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Trainee.Fullname, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        @Html.TextBoxFor(m => m.Trainee.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Trainee.Age, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        @Html.TextBoxFor(m => m.Trainee.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Trainee.Address, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Date Of Birth</label>
+        @Html.TextBoxFor(m => m.Trainee.DateOfBirth, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.Trainee.DateOfBirth, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

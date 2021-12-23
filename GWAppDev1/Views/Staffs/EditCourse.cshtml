@@ -1,0 +1,32 @@
+﻿@model GWAppDev1.ViewModels.CourseCategoriesViewModel
+@{
+    ViewBag.Title = "EditCourse";
+}
+
+<h2>EditCourse</h2>
+@using (Html.BeginForm("EditCourse", "Staffs", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Course.Id)
+    <div class="form-group">
+        <label>CourseName</label>
+        @Html.TextBoxFor(m => m.Course.CourseName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.CourseName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextBoxFor(m => m.Course.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Course Category:</label>
+        @Html.DropDownListFor(m => m.Course.CourseCategoryId,
+        new SelectList(Model.CourseCategory, "Id", "NameCourseCategory"),
+        new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Edit Trainee</button>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

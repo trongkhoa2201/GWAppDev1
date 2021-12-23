@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GWAppDev1.Models.Staff>
+@{
+    ViewBag.Title = "ShowStaffInfo";
+}
+
+<h2>ShowStaffInfo</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back to Home", "Index", "Admin", null, new { @class = "btn btn-primary" })
+</div>
+<div class="form-group">
+    @Html.ActionLink("Create a new Staff Info", "CreateStaff", null, new { @class = "btn btn-primary" })
+</div>
+
+<table class="table table-striped">
+    <thread>
+        <tr>
+            <th class="text-danger">FullName</th>
+            <th class="text-danger">Email</th>
+            <th class="text-danger">Age</th>
+            <th class="text-danger">Address</th>
+            <th class="text-danger">Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var staff in Model)
+        {
+            <tr>
+                <td>@staff.Fullname</td>
+                <td>@staff.Email</td>
+                <td>@staff.Age</td>
+                <td>@staff.Address</td>
+
+
+                <td>
+                    @Html.ActionLink("Edit Staff Info", "EditStaffInfo", new { id = staff.Id },
+                      new { @class = "btn btn-success" })
+                    @Html.ActionLink("DeleteStaff", "DeleteStaff", new { id = staff.Id }
+                    , new { @class = "btn btn-danger", onClick = "return confirm('Are you sure?')" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

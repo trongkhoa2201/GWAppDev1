@@ -1,0 +1,38 @@
+﻿@model GWAppDev1.Models.Trainee
+@{
+    ViewBag.Title = "EditTraineeInfo";
+}
+
+<h2>Edit a new TraineeInfo</h2>
+@using (Html.BeginForm("EditTraineeInfo", "Staffs", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Email)
+    <div class="form-group">
+        <label>Fullname</label>
+        @Html.TextBoxFor(m => m.Fullname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Fullname, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Edit Trainee</button>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

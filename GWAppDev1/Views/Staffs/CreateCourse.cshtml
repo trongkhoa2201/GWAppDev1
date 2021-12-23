@@ -1,0 +1,38 @@
+﻿@model GWAppDev1.ViewModels.CourseCategoriesViewModel
+@{
+    ViewBag.Title = "CreateCourse";
+}
+
+<h2>Create a new Course</h2>
+
+@using (Html.BeginForm("CreateCourse", "Staffs", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <label>NameCourse</label>
+        @Html.TextBoxFor(m => m.Course.CourseName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.CourseName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Descriptions</label>
+        @Html.TextBoxFor(m => m.Course.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Course.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Course Category:</label>
+        @Html.DropDownListFor(m => m.Course.CourseCategoryId,
+        new SelectList(Model.CourseCategory, "Id", "NameCourseCategory"),
+        new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
