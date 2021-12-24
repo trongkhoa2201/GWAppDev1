@@ -331,16 +331,18 @@ namespace GWAppDev1.Controllers
             var role = _context.Roles
                 .SingleOrDefault(r => r.Name.Equals(Role.Trainer));
             var users = _context.Users
-                .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
-            var viewModel = new CoursesTrainersViewModel
+                .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id)))
+                .ToList();
+            var viewModel = new CoursesUsersViewModel
             {
                 Courses = _context.Courses.ToList(),
                 Users = users
             };
             return View(viewModel);
         }
+
         [HttpPost]
-        public ActionResult AssignTrainer(CoursesTrainersViewModel viewModel)
+        public ActionResult AssignTrainer(CoursesUsersViewModel viewModel)
         {
             var model = new CourseTrainer
             {
@@ -358,8 +360,9 @@ namespace GWAppDev1.Controllers
                 var role = _context.Roles
                     .SingleOrDefault(r => r.Name.Equals(Role.Trainer));
                 var users = _context.Users
-                    .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
-                var NewviewModel = new CoursesTrainersViewModel
+                    .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id)))
+                    .ToList();
+                var NewviewModel = new CoursesUsersViewModel
                 {
                     Courses = _context.Courses.ToList(),
                     Users = users
@@ -386,12 +389,12 @@ namespace GWAppDev1.Controllers
         [HttpGet]
         public ActionResult ShowTrainees(int id)
         {
-            var trainers = _context.CourseTrainer
+            var users = _context.CourseTrainee
                 .Where(t => t.CourseId == id)
                 .Select(t => t.User)
                 .ToList();
             ViewBag.courseId = id;
-            return View(trainers);
+            return View(users);
         }
         [HttpGet]
         public ActionResult AssignTrainee()
@@ -399,7 +402,7 @@ namespace GWAppDev1.Controllers
             var role = _context.Roles.SingleOrDefault(r => r.Name.Equals(Role.Trainee));
             var users = _context.Users
                 .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
-            var viewModel = new CoursesTraineesViewModel
+            var viewModel = new CoursesUsersViewModel
             {
                 Courses = _context.Courses.ToList(),
                 Users = users
@@ -407,7 +410,7 @@ namespace GWAppDev1.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult AssignTrainee(CoursesTraineesViewModel viewModel)
+        public ActionResult AssignTrainee(CoursesUsersViewModel viewModel)
         {
             var model = new CourseTrainee
             {
@@ -425,7 +428,7 @@ namespace GWAppDev1.Controllers
                 var role = _context.Roles.SingleOrDefault(r => r.Name.Equals(Role.Trainee));
                 var users = _context.Users
                     .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
-                var NewviewModel = new CoursesTraineesViewModel
+                var NewviewModel = new CoursesUsersViewModel
                 {
                     Courses = _context.Courses.ToList(),
                     Users = users
@@ -446,7 +449,6 @@ namespace GWAppDev1.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("ShowTrainees", new { id = id });
-
         }
     }
 }

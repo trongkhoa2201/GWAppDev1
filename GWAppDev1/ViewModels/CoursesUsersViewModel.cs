@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GWAppDev1.ViewModels
 {
-    public class CoursesTraineesViewModel
+    public class CoursesUsersViewModel
     {
         public string UserId { get; set; }
         public IEnumerable<ApplicationUser> Users { get; set; }

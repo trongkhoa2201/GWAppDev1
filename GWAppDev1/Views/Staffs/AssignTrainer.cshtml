@@ -1,11 +1,10 @@
-﻿@model GWAppDev1.ViewModels.CoursesTrainersViewModel
+﻿@model GWAppDev1.ViewModels.CoursesUsersViewModel
 @{
     ViewBag.Title = "AssignTrainer";
 }
 
 <h2>Assign Trainer</h2>
 @using (Html.BeginForm("AssignTrainer", "Staffs", FormMethod.Post))
-
 {
 <div class="form-group">
     <label>Course</label>
@@ -20,6 +19,7 @@
        new SelectList(Model.Users, "Id", "Email"),
        new { @class = "form-control" }
        )
+        @Html.ValidationMessage("duplicate")
     </div>
     <button type="submit" class="btn btn-primary">Assign</button>
 }
