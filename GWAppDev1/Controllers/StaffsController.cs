@@ -317,16 +317,18 @@ namespace GWAppDev1.Controllers
         [HttpGet]
         public ActionResult ShowTrainers(int id)
         {
-            var trainers = _context.CoursesTrainers
+            var users = _context.CourseTrainer
                 .Where(t => t.CourseId == id)
-                .Select(t => t.User)
+                .Select(t => t.User)               
                 .ToList();
-            return View(trainers);
+            ViewBag.courseId = id;
+            return View(users);
         }
         [HttpGet]
         public ActionResult AssignTrainer()
         {
-            var role = _context.Roles.SingleOrDefault(r => r.Name.Equals(Role.Trainer));
+            var role = _context.Roles
+                .SingleOrDefault(r => r.Name.Equals(Role.Trainer));
             var users = _context.Users
                 .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
             var viewModel = new CoursesTrainersViewModel
@@ -346,13 +348,14 @@ namespace GWAppDev1.Controllers
             };
             try
             {
-                _context.CoursesTrainers.Add(model);
+                _context.CourseTrainer.Add(model);
                 _context.SaveChanges();
             }
             catch (System.Exception)
             {
                 ModelState.AddModelError("duplicate", "User already existed in team");
-                var role = _context.Roles.SingleOrDefault(r => r.Name.Equals(Role.Trainer));
+                var role = _context.Roles
+                    .SingleOrDefault(r => r.Name.Equals(Role.Trainer));
                 var users = _context.Users
                     .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id))).ToList();
                 var NewviewModel = new CoursesTrainersViewModel
@@ -366,22 +369,23 @@ namespace GWAppDev1.Controllers
         }
 
         [HttpGet]
-            public ActionResult RemoveTrainer(int id, string trainerId)
-            {
-                var TrainerInCourse = _context.CoursesTrainers.SingleOrDefault(
-                  u => u.CourseId == id && u.UserId == trainerId);
+        public ActionResult RemoveTrainer(int id, string trainerId)
+        {
+            var userinCourse = _context.CourseTrainer.SingleOrDefault(
+              u => u.CourseId == id && u.UserId == trainerId);
 
-                if (TrainerInCourse == null) return HttpNotFound();
+            if (userinCourse == null) return HttpNotFound();
 
-                _context.CoursesTrainers.Remove(TrainerInCourse);
-                _context.SaveChanges();
+            _context.CourseTrainer.Remove(userinCourse);
+            _context.SaveChanges();
 
-                return RedirectToAction("ShowTrainers", new { id = id });
-            }
+            return RedirectToAction("ShowTrainers", new { id = id });
+
+        }
         [HttpGet]
         public ActionResult ShowTrainees(int id)
         {
-            var trainers = _context.CoursesTrainers
+            var trainers = _context.CourseTrainer
                 .Where(t => t.CourseId == id)
                 .Select(t => t.User)
                 .ToList();
@@ -410,7 +414,7 @@ namespace GWAppDev1.Controllers
             };
             try
             {
-                _context.CoursesTrainees.Add(model);
+                _context.CourseTrainee.Add(model);
                 _context.SaveChanges();
             }
             catch (System.Exception)

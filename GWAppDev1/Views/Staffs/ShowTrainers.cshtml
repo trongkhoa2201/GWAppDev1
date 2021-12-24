@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GWAppDev1.Models.ApplicationUser>
+
 @{
     ViewBag.Title = "ShowTrainers";
 }
@@ -18,8 +19,8 @@
         {
             <tr>
                 <td>
-                    @trainer.Email @Html.ActionLink("Remove",
-                                  "RemoveTrainers",
+                  @trainer.Email 
+                    @Html.ActionLink("Remove", "RemoveTrainer",
                    new { id = ViewBag.courseId, trainerId = trainer.Id },new { @class = "btn btn-danger" })
                 </td>
                 <td>

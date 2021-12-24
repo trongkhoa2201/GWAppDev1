@@ -3,7 +3,7 @@
     ViewBag.Title = "ShowTrainees";
 }
 
-<h2>Show Trainers in Course</h2>
+<h2>Show Trainees in Course</h2>
 <div class="form-group">
     @Html.ActionLink("Back to Show Courses", "ShowCourse", null, new { @class = "btn btn-primary" })
 </div>
@@ -20,7 +20,7 @@
                 <td>
                     @trainee.Email @Html.ActionLink("Remove",
                    "RemoveTrainees",
-    new { id = ViewBag.courseId, traineeId = trainee.Id }, new { @class = "btn btn-danger" })
+            new { id = ViewBag.courseId, traineeId = trainee.Id }, new { @class = "btn btn-danger" })
                 </td>
                 <td>
                 </td>

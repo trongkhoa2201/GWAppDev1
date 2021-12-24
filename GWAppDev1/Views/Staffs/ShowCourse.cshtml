@@ -9,8 +9,8 @@
 </div>
 <div class="form-group">
     @Html.ActionLink("Create a new Course", "CreateCourse", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Assign Trainer", "AssignTrainer", null, new { @class = "btn btn-success" })
-    @Html.ActionLink("Assign Trainee", "AssignTrainee", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Assign Trainers", "AssignTrainer", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Assign Trainees", "AssignTrainee", null, new { @class = "btn btn-success" })
 </div>
 @using (Html.BeginForm("ShowCourse", "Staffs", FormMethod.Get))
 {
