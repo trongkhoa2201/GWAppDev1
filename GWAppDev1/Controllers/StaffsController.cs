@@ -389,6 +389,7 @@ namespace GWAppDev1.Controllers
                 .Where(t => t.CourseId == id)
                 .Select(t => t.User)
                 .ToList();
+            ViewBag.courseId = id;
             return View(trainers);
         }
         [HttpGet]
@@ -432,5 +433,19 @@ namespace GWAppDev1.Controllers
             }
             return RedirectToAction("ShowCourse");
         }
+        [HttpGet]
+        public ActionResult RemoveTrainee(int id, string traineeId)
+        {
+            var userinCourse = _context.CourseTrainee.SingleOrDefault(
+              u => u.CourseId == id && u.UserId == traineeId);
+
+            if (userinCourse == null) return HttpNotFound();
+
+            _context.CourseTrainee.Remove(userinCourse);
+            _context.SaveChanges();
+
+            return RedirectToAction("ShowTrainees", new { id = id });
+
+        }
     }
-    }
+}
