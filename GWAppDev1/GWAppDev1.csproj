@@ -194,12 +194,17 @@
     <Compile Include="Migrations\202112220823454_UpdateCourseTrainerTable.designer.cs">
       <DependentUpon>202112220823454_UpdateCourseTrainerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112231743142_CreateTableTrainer.cs" />
+    <Compile Include="Migrations\202112231743142_CreateTableTrainer.designer.cs">
+      <DependentUpon>202112231743142_CreateTableTrainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseCategory.cs" />
+    <Compile Include="Models\CourseTrainee.cs" />
     <Compile Include="Models\CourseTrainer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -209,6 +214,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Role.cs" />
     <Compile Include="ViewModels\CourseCategoriesViewModels.cs" />
+    <Compile Include="ViewModels\CoursesTraineesViewModel.cs" />
     <Compile Include="ViewModels\CoursesTrainersViewModel.cs" />
     <Compile Include="ViewModels\RegisterTrainer.cs" />
     <Compile Include="ViewModels\RegisterViewModels.cs" />
@@ -297,7 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Courses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112220823454_UpdateCourseTrainerTable.resx">
       <DependentUpon>202112220823454_UpdateCourseTrainerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112231743142_CreateTableTrainer.resx">
+      <DependentUpon>202112231743142_CreateTableTrainer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

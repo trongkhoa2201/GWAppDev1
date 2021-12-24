@@ -4,6 +4,9 @@
 }
 
 <h2>Show Trainers in Course</h2>
+    <div class="form-group">
+        @Html.ActionLink("Back to Show Courses", "ShowCourse", null, new { @class = "btn btn-primary" })
+    </div>
 <table class="table table-striped">
     <thread>
         <tr>
@@ -14,9 +17,12 @@
         @foreach (var trainer in Model)
         {
             <tr>
-                <td>@trainer.Email</td>
                 <td>
-                    @Html.ActionLink("Remove", "RemoveTrainers", new { id = trainer.Id }, new { @class = "btn btn-danger" })
+                    @trainer.Email @Html.ActionLink("Remove",
+                                  "RemoveTrainers",
+                   new { id = ViewBag.courseId, trainerId = trainer.Id },new { @class = "btn btn-danger" })
+                </td>
+                <td>
                 </td>
             </tr>
         }

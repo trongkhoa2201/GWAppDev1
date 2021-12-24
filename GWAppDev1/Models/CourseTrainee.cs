@@ -7,7 +7,7 @@ using System.Web;
 
 namespace GWAppDev1.Models
 {
-    public class CourseTrainer
+    public class CourseTrainee
     {
         [Key]
         [Column(Order = 1)]
