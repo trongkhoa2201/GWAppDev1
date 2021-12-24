@@ -52,36 +52,39 @@ namespace GWAppDev1.Controllers
                 _userManager = value;
             }
         }
-        
+        public ActionResult Index()
+        {
+            return View();
+        }
         [HttpGet]
-        public ActionResult CreateTrainer()
+        public ActionResult CreateTrainee()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateTrainer(RegisterViewModels viewModel)
+        public async Task<ActionResult> CreateTrainee(RegisterViewModels viewModel)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = viewModel.Trainer.Email, Email = viewModel.Trainer.Email };
+                var user = new ApplicationUser { UserName = viewModel.Trainee.Email, Email = viewModel.Trainee.Email };
                 var result = await UserManager.CreateAsync(user, viewModel.Password);
                 var userId = user.Id;
-                var newTrainer = new Trainer()
+                var newTrainee = new Trainee()
                 {
                     UserId = userId,
-                    Fullname = viewModel.Trainer.Fullname,
-                    Age = viewModel.Trainer.Age,
-                    Address = viewModel.Trainer.Address,
-                    Email = viewModel.Trainer.Email,
-                    Specialty = viewModel.Trainer.Specialty
+                    Fullname = viewModel.Trainee.Fullname,
+                    Age = viewModel.Trainee.Age,
+                    Address = viewModel.Trainee.Address,
+                    Email = viewModel.Trainee.Email,
+                    DateOfBirth = viewModel.Trainee.DateOfBirth
                 };
                 if (result.Succeeded)
                 {
-                    await UserManager.AddToRoleAsync(user.Id, Role.Trainer);
-                    _context.Trainers.Add(newTrainer);
+                    await UserManager.AddToRoleAsync(user.Id, Role.Trainee);
+                    _context.Trainees.Add(newTrainee);
                     _context.SaveChanges();
-                    return RedirectToAction("ShowTrainerInfo", "Staffs");
+                    return RedirectToAction("ShowTraineeInfo", "Staffs");
                 }
 
                 AddErrors(result);
@@ -96,7 +99,7 @@ namespace GWAppDev1.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-
+        
         [HttpGet]
         public ActionResult ShowTraineeInfo(string searchString)
         {
