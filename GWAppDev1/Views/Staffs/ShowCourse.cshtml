@@ -9,7 +9,8 @@
 </div>
 <div class="form-group">
     @Html.ActionLink("Create a new Course", "CreateCourse", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Assign Trainer", "AssignTrainer", null,new { @class ="btn btn-success"})
+    @Html.ActionLink("Assign Trainer", "AssignTrainer", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Assign Trainee", "AssignTrainee", null, new { @class = "btn btn-success" })
 </div>
 @using (Html.BeginForm("ShowCourse", "Staffs", FormMethod.Get))
 {
@@ -40,7 +41,8 @@
                     new { @class = "btn btn-success" })
                     @Html.ActionLink("Delete Course", "DeleteCourse", new { id = course.Id }
                     , new { @class = "btn btn-danger", onClick = "return confirm('Are you sure?')" })
-                    @Html.ActionLink(" Show Trainers", "ShowTrainers", new {id = course.Id},new {@class = "btn btn-primary"})
+                    @Html.ActionLink(" Show Trainers", "ShowTrainers", new { id = course.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(" Show Trainees", "ShowTrainees", new { id = course.Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

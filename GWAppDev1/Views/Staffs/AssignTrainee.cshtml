@@ -1,0 +1,24 @@
+﻿@model GWAppDev1.ViewModels.CoursesTraineesViewModel
+@{
+    ViewBag.Title = "AssignTrainee";
+}
+
+<h2>Assign Trainee</h2>
+@using (Html.BeginForm("AssignTrainee", "Staffs", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Course</label>
+        @Html.DropDownListFor(m => m.Courses, new SelectList(Model.Courses, "Id", "CourseName"),
+         "Select Course Name",
+         new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Trainer</label>
+        @Html.DropDownListFor(
+       m => m.UserId,
+       new SelectList(Model.Users, "Id", "Email"),
+       new { @class = "form-control" }
+       )
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+}

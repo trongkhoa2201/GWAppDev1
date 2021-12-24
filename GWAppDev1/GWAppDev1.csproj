@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202112231743142_CreateTableTrainer.designer.cs">
       <DependentUpon>202112231743142_CreateTableTrainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112240107475_UpdateTableTrainee.cs" />
+    <Compile Include="Migrations\202112240107475_UpdateTableTrainee.designer.cs">
+      <DependentUpon>202112240107475_UpdateTableTrainee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -300,6 +304,8 @@
     <Content Include="Views\Trainers\Index.cshtml" />
     <Content Include="Views\Trainees\Detail.cshtml" />
     <Content Include="Views\Trainers\Detail.cshtml" />
+    <Content Include="Views\Staffs\ShowTrainees.cshtml" />
+    <Content Include="Views\Staffs\AssignTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112231743142_CreateTableTrainer.resx">
       <DependentUpon>202112231743142_CreateTableTrainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112240107475_UpdateTableTrainee.resx">
+      <DependentUpon>202112240107475_UpdateTableTrainee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
