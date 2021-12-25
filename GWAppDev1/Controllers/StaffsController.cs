@@ -153,7 +153,7 @@ namespace GWAppDev1.Controllers
             _context.Trainees.Remove(trainees);
             _context.SaveChanges();
             return RedirectToAction("ShowTraineeInfo");
-        }
+        }       
         [HttpGet]
         public ActionResult ShowCourseCategory(string searchString)
         {

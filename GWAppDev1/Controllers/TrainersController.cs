@@ -1,11 +1,13 @@
 ﻿using GWAppDev1.Models;
 using GWAppDev1.Utils;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace GWAppDev1.Controllers
 {
@@ -48,7 +50,7 @@ namespace GWAppDev1.Controllers
                 _userManager = value;
             }
         }
-        // GET: Trainee
+        // GET: Trainer
         public ActionResult Index()
         {
             var trainer = _context.Trainers.ToList();
@@ -63,6 +65,6 @@ namespace GWAppDev1.Controllers
                 return HttpNotFound();
             }
             return View(trainer);
-        }
+        }      
     }
 }
