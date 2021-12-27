@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GWAppDev1.Models.Course>
+@{
+        ViewBag.Title = "ShowAllCourses";
+    }
+    <h2>ShowAllCourses</h2>
+    <div class="form-group">
+        @Html.ActionLink("Back to Home", "Detail", "Home",
+            null,
+            new { @class = "btn btn-primary" })
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Show other trainees</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CourseName</td>
+                    <td>
+                        @Html.ActionLink("Show all trainees", "ShowOtherTrainee",
+        new { id = @item.Id },
+        new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+

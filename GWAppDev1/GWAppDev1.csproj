@@ -171,7 +171,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndexforTrainerandTraineeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\TraineesController.cs" />
@@ -202,6 +201,14 @@
     <Compile Include="Migrations\202112240107475_UpdateTableTrainee.cs" />
     <Compile Include="Migrations\202112240107475_UpdateTableTrainee.designer.cs">
       <DependentUpon>202112240107475_UpdateTableTrainee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112261609417_Update2CourseTrainer.cs" />
+    <Compile Include="Migrations\202112261609417_Update2CourseTrainer.designer.cs">
+      <DependentUpon>202112261609417_Update2CourseTrainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112261655435_CreateShowCourse.cs" />
+    <Compile Include="Migrations\202112261655435_CreateShowCourse.designer.cs">
+      <DependentUpon>202112261655435_CreateShowCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -290,24 +297,27 @@
     <Content Include="Views\Admin\ChangePasswordTrainer.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
     <Content Include="Views\Staffs\CreateTrainee.cshtml" />
-    <Content Include="Views\Staffs\ShowTraineeInfo.cshtml" />
-    <Content Include="Views\Staffs\EditTraineeInfo.cshtml" />
     <Content Include="Views\Staffs\ShowCourseCategory.cshtml" />
     <Content Include="Views\Staffs\CreateCourseCategory.cshtml" />
     <Content Include="Views\Staffs\EditCourseCategory.cshtml" />
     <Content Include="Views\Staffs\ShowCourse.cshtml" />
     <Content Include="Views\Staffs\CreateCourse.cshtml" />
     <Content Include="Views\Staffs\EditCourse.cshtml" />
-    <Content Include="Views\Trainees\Index.cshtml" />
-    <Content Include="Views\Staffs\ShowTrainers.cshtml" />
     <Content Include="Views\Staffs\AssignTrainer.cshtml" />
-    <Content Include="Views\Trainers\Index.cshtml" />
-    <Content Include="Views\Trainees\Detail.cshtml" />
-    <Content Include="Views\Trainers\Detail.cshtml" />
-    <Content Include="Views\Staffs\ShowTrainees.cshtml" />
     <Content Include="Views\Staffs\AssignTrainee.cshtml" />
-    <Content Include="Views\IndexforTrainerandTrainee\HomeOfTrainer.cshtml" />
-    <Content Include="Views\IndexforTrainerandTrainee\UpdateProfileOfTrainer.cshtml" />
+    <Content Include="Views\Staffs\ShowTrainees.cshtml" />
+    <Content Include="Views\Staffs\ShowTrainers.cshtml" />
+    <Content Include="Views\Staffs\ShowTraineeInfo.cshtml" />
+    <Content Include="Views\Trainers\Index.cshtml" />
+    <Content Include="Views\Trainers\Detail.cshtml" />
+    <Content Include="Views\Trainees\Index.cshtml" />
+    <Content Include="Views\Trainees\Detail.cshtml" />
+    <Content Include="Views\Trainers\UpdateProfileOfTrainer.cshtml" />
+    <Content Include="Views\Staffs\EditTraineeInfo.cshtml" />
+    <Content Include="Views\Trainers\ViewCourse.cshtml" />
+    <Content Include="Views\Trainers\ViewAllTrainees.cshtml" />
+    <Content Include="Views\Trainees\ShowAllCourses.cshtml" />
+    <Content Include="Views\Trainees\ShowOtherTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112240107475_UpdateTableTrainee.resx">
       <DependentUpon>202112240107475_UpdateTableTrainee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112261609417_Update2CourseTrainer.resx">
+      <DependentUpon>202112261609417_Update2CourseTrainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112261655435_CreateShowCourse.resx">
+      <DependentUpon>202112261655435_CreateShowCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,8 +6,8 @@
 <h2>Trainee Detail</h2>
 <div class="form-group">
     @Html.ActionLink("Back to ShowTrainerInfo", "Index", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Update Profile", "UpdateProfileOfTrainer", "IndexforTrainerandTrainee", new { id = Model.Id }, new { @class = "btn btn-primary" })
-    @Html.ActionLink("View Course", "ViewCourse", "IndexForTrainerAndTrainee", new { @class = "btn btn-info" })
+    @Html.ActionLink("Update Profile", "UpdateProfileOfTrainer", "Trainers", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("View Course", "ViewCourse", "Trainers", new { @class = "btn btn-info" })
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">@Model.Fullname</div>

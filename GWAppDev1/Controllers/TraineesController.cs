@@ -80,20 +80,20 @@ namespace GWAppDev1.Controllers
             return View(courses);
         }
         [HttpGet]
-        public ActionResult ShowOtherTrainee(int Id)
+        public ActionResult ShowOtherTrainee(int id)
         {
-            var coursesId = Id;
+            //get current user Id
             var userId = User.Identity.GetUserId();
             var users = _context.CourseTrainee
-                .Where(u => u.CourseId == coursesId)
+                .Where(u => u.CourseId == id)
                 .Select(u => u.User)
                 .ToList();
             var role = _context.Roles
-                .SingleOrDefault(r => r.Name.Equals(userId));
+              .SingleOrDefault(r => r.Name.Equals(Role.Trainee));
             var newusers = users
-                .Where(m => m.Roles.Any(r => r.RoleId.Equals(userId)) && m.Id != userId)
-                .ToList();
-                return View();
+             .Where(m => m.Roles.Any(r => r.RoleId.Equals(role.Id)) && m.Id != userId)
+             .ToList();
+            return View(newusers);
         }
     }
 }

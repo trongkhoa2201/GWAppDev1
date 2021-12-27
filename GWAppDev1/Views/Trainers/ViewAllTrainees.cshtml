@@ -1,0 +1,16 @@
+﻿@model IEnumerable<GWAppDev1.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ViewAllTrainees";
+}
+
+<h2>ViewAllTrainees</h2>
+
+<li>
+    @foreach ( var trainee in Model)
+            {
+        <ul>
+            @trainee.Email
+        </ul>
+            }
+</li>
+

@@ -99,7 +99,7 @@ namespace GWAppDev1.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-        
+
         [HttpGet]
         public ActionResult ShowTraineeInfo(string searchString)
         {
@@ -153,7 +153,7 @@ namespace GWAppDev1.Controllers
             _context.Trainees.Remove(trainees);
             _context.SaveChanges();
             return RedirectToAction("ShowTraineeInfo");
-        }       
+        }
         [HttpGet]
         public ActionResult ShowCourseCategory(string searchString)
         {
@@ -320,7 +320,7 @@ namespace GWAppDev1.Controllers
         {
             var users = _context.CourseTrainer
                 .Where(t => t.CourseId == id)
-                .Select(t => t.User)               
+                .Select(t => t.User)
                 .ToList();
             ViewBag.courseId = id;
             return View(users);

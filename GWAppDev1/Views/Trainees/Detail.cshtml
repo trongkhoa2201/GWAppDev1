@@ -6,6 +6,7 @@
 <h2>Trainee Detail</h2>
 <div class="form-group">
     @Html.ActionLink("Back to ShowTraineeInfo", "Index", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Show All Course", "ShowAllCourses", "Trainers", new { @class = "btn btn-info" })
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">@Model.Fullname</div>
@@ -15,4 +16,4 @@
         <p>DateOfBirth :@Model.DateOfBirth</p>
         <p>Address :@Model.Address</p>
     </div>
-    </div>
+</div>
